@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-arata-internal-tls
+  namespace: nginx
+spec:
+  secretName: nginx-arata-internal-tls
+  dnsNames:
+    - nginx.arata.internal
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+    group: cert-manager.io

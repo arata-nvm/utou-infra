@@ -4,11 +4,3 @@ args:
 ingressRoute:
   dashboard:
     enabled: true
-
-certificatesResolvers:
-  letsencrypt:
-    acme:
-      email: arata04962@gmail.com
-      storage: acme.json
-      httpChallenge:
-        entryPoint: web
