@@ -15,7 +15,7 @@ data:
         ready
         template IN A arata.internal {
             match ^.*\.arata\.internal\.$
-            answer "{{ .Name }} 60 IN A TODO"
+            answer "{{ .Name }} 60 IN A 100.93.247.23"
             fallthrough
         }
         forward . 10.96.0.10
