@@ -1,2 +1,6 @@
 args:
   - --kubelet-insecure-tls
+
+ingressRoute::
+  dashboard:
+    enabled: true
