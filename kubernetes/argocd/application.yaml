@@ -12,3 +12,9 @@ spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - Prune=false
+      - PruneLast=true
+      - Replace=false
