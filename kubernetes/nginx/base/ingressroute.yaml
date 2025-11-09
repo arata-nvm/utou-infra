@@ -15,6 +15,6 @@ spec:
         - name: nginx
           port: 80
   tls:
-    - hosts:
-        - nginx.arata.internal
-      secretName: nginx-arata-internal-tls
+    domains:
+      - main: nginx.arata.internal
+    secretName: nginx-arata-internal-tls
