@@ -4,3 +4,4 @@ args:
 ingressRoute:
   dashboard:
     enabled: true
+    entryPoints: ["websecure"]
