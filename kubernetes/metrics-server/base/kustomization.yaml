@@ -8,3 +8,6 @@ helmCharts:
     version: 3.12.1
     repo: https://kubernetes-sigs.github.io/metrics-server/
     valuesFile: values.yaml
+
+resources:
+  - namespace.yaml
