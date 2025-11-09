@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: coredns
-          image: registry.k8s.io/coredns:v1.13.1
+          image: registry.k8s.io/coredns/coredns:v1.13.1
           args: ["-conf", "/etc/coredns/Corefile"]
           volumeMounts:
             - name: config-volume
