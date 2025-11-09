@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  label:
+  labels:
     app: tailscale-dns
   name: coredns
   namespace: tailscale
