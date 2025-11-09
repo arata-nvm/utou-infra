@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: headlamp
+  namespace: headlamp
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/arata-nvm/utou-infra
+    targetRevision: main
+    path: kubernetes/headlamp
+  destination:
+    namespace: headlamp
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated: {}
