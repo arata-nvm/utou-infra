@@ -9,4 +9,5 @@ helmCharts:
     repo: https://kubernetes-sigs.github.io/headlamp/
 
 resources:
+  - ingressroute.yaml
   - namespace.yaml

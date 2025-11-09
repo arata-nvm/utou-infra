@@ -9,6 +9,7 @@ helmCharts:
     repo: https://argoproj.github.io/argo-helm
 
 resources:
+  - ingressroute.yaml
   - namespace.yaml
 
 patches:
