@@ -9,3 +9,7 @@ helmCharts:
     repo: https://traefik.github.io/charts
     includeCRDs: true
     valuesFile: values.yaml
+
+resources:
+  - ingressroute.yaml
+  - namespace.yaml
