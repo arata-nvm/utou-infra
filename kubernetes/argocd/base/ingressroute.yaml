@@ -10,5 +10,5 @@ spec:
     - match: Host(`argocd.arata.internal`)
       kind: Rule
       services:
-        - name: argocd
+        - name: argocd-server
           port: 80
