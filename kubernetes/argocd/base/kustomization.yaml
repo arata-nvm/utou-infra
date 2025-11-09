@@ -12,6 +12,3 @@ helmCharts:
 resources:
   - ingressroute.yaml
   - namespace.yaml
-
-patches:
-  - path: argocd-cm.yaml
