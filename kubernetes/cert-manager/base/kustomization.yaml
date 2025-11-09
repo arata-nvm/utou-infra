@@ -7,7 +7,7 @@ helmCharts:
     namespace: cert-manager
     version: 1.19.1
     repo: https://charts.jetstack.io
-    includeCRDs: true
+    valuesFile: values.yaml
 
 resources:
   - clusterissuer.yaml
