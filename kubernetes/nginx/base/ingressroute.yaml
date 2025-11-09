@@ -3,8 +3,6 @@ kind: IngressRoute
 metadata:
   name: nginx
   namespace: nginx
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   entryPoints:
     - websecure
