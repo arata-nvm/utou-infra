@@ -5,16 +5,16 @@ metadata:
   namespace: nginx
 spec:
   replicas: 1
-  seletector:
+  selector:
     matchLabels:
       app: nginx
   template:
     metadata:
       labels:
         app: nginx
-      spec:
-        containers:
-          - name: nginx
-            image: nginx:latest
-            ports:
-              - containerPort: 80
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
