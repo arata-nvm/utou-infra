@@ -1,6 +1,6 @@
 # Copyright (c) Tailscale Inc & AUTHORS
 # SPDX-License-Identifier: BSD-3-Clause
-apiVersion: v1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tailscale-dns
