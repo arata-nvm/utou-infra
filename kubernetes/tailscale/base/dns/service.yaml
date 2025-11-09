@@ -1,0 +1,27 @@
+api: v1
+kind: Service
+metadata:
+  label:
+    app: tailscale-dns
+  name: coredns
+  namespace: tailscale
+spec:
+  clusterIP: 10.96.0.11
+  clusterIPs:
+    - 10.96.0.11
+  ports:
+    - name: dns
+      port: 53
+      protocol: UDP
+      targetPort: 53
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+      targetPort: 53
+    - name: metrics
+      port: 9153
+      protocol: TCP
+      targetPort: 9153
+  selector:
+    app: tailscale-dns
+  type: ClusterIP

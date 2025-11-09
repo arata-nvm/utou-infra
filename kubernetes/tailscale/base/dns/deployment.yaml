@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  labels:
+    app: tailscale-dns
+  name: coredns
+  namespace: tailscale
+spec:
+  selector:
+    matchLabels:
+      app: tailscale-dns
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tailscale-dns
+    spec:
+      containers:
+        - name: coredns
+          image: coredns/coredns:1.13.1
+          args: ["-conf", "/etc/coredns/Corefile"]
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/coredns
+              readOnly: true
+          ports:
+            - name: dns
+              containerPort: 53
+              protocol: UDP
+            - name: dns-tcp
+              containerPort: 53
+              protocol: TCP
+            - name: metrics
+              containerPort: 9153
+              protocol: TCP
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+          livenessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /ready
+              port: 8181
+              scheme: HTTP
+            initialDelaySeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+      volumes:
+        - name: config-volume
+          configMap:
+            name: coredns
+            defaultMode: 420
+      serviceAccountName: coredns
